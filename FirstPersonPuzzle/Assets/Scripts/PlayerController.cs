@@ -17,8 +17,16 @@ public class PlayerController : MonoBehaviour
     //Utilizada para poder travar a rotação no angulo que quisermos.
     float cameraRotation;
     string object_hit;
+    public Inventory inventory;
     public GameObject hand;
     CharacterController characterController;
+    public HUD hud;
+    public GameObject but1;
+    public GameObject but2;
+    public GameObject but3;
+    public GameObject but4;
+    public GameObject but5;
+    public GameObject but6;
     public float stamina = 100.0f;
 
     // AudioSource walkingSound;
@@ -30,12 +38,85 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         playerCamera = GameObject.Find("Main Camera");
         cameraRotation = 0.0f;
+        inventory.ItemUsed += Inventory_ItemUsed;
         running_speed = walking_speed * 2.0f;
         // walkingSound = GetComponent<AudioSource>();
     }
 
+    private IInventoryItem mCurrentItem = null;
+    public GameObject goItem;
+    private void Inventory_ItemUsed(object sender, InventoryEventArgs e)
+    {
+        if (mCurrentItem != null)
+        {
+            goItem.SetActive(false);
+        }
+
+        IInventoryItem item = e.Item;
+
+        if (item != null)
+        {
+            goItem = (item as MonoBehaviour).gameObject;
+            goItem.SetActive(true);
+            Rigidbody goItemRB = goItem.GetComponent<Rigidbody>();
+            goItemRB.isKinematic = true;
+
+            goItem.transform.parent = hand.transform;
+            goItem.transform.localPosition = (item as InventoryItemBase).PickPosition;
+            goItem.transform.localEulerAngles = (item as InventoryItemBase).PickRotation;
+
+            mCurrentItem = e.Item;
+        }
+
+    }
+
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Button bbut1 = but1.GetComponent<Button>();
+            bbut1.Select();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Button bbut2 = but2.GetComponent<Button>();
+            bbut2.Select();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Button bbut3 = but3.GetComponent<Button>();
+            bbut3.Select();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            Button bbut4 = but4.GetComponent<Button>();
+            bbut4.Select();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            Button bbut5 = but5.GetComponent<Button>();
+            bbut5.Select();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            Button bbut6 = but6.GetComponent<Button>();
+            bbut6.Select();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (mItemToPickup != null && inventory.mItems.Count < 6)
+            {
+                inventory.AddItem(mItemToPickup);
+                mItemToPickup.OnPickup();
+                hud.CloseMessagePanel();
+            }
+        }
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -115,14 +196,25 @@ public class PlayerController : MonoBehaviour
 
         playerCamera.transform.localRotation = Quaternion.Euler(cameraRotation, 0.0f, 0.0f);
     }
+    IInventoryItem mItemToPickup = null;
+    bool chestToOpen = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Boots")
+        IInventoryItem item = other.GetComponent<IInventoryItem>();
+        if (item != null)
         {
-            walking_speed = walking_speed*2f;
+            mItemToPickup = item;
+            hud.OpenMessagePanel("Pressione F para pegar");
         }
     }
     private void OnTriggerExit(Collider other)
     {
+        IInventoryItem item = other.GetComponent<IInventoryItem>();
+        if (item != null)
+        {
+            hud.CloseMessagePanel();
+            mItemToPickup = null;
+
+        }
     }
 }
