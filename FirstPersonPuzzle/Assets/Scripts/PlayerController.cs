@@ -24,9 +24,6 @@ public class PlayerController : MonoBehaviour
     public GameObject but1;
     public GameObject but2;
     public GameObject but3;
-    public GameObject but4;
-    public GameObject but5;
-    public GameObject but6;
     public float stamina = 100.0f;
 
     // AudioSource walkingSound;
@@ -90,24 +87,6 @@ public class PlayerController : MonoBehaviour
             bbut3.Select();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            Button bbut4 = but4.GetComponent<Button>();
-            bbut4.Select();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            Button bbut5 = but5.GetComponent<Button>();
-            bbut5.Select();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            Button bbut6 = but6.GetComponent<Button>();
-            bbut6.Select();
-        }
-
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (mItemToPickup != null && inventory.mItems.Count < 6)
@@ -160,19 +139,19 @@ public class PlayerController : MonoBehaviour
         float mouse_dY = Input.GetAxis("Mouse Y");
 
         //Tratando a rotação da câmera
-        if (cameraRotation >= -20 && cameraRotation <= 45)
+        if (cameraRotation >= -40 && cameraRotation <= 55)
         {
             cameraRotation -= mouse_dY;
             Mathf.Clamp(cameraRotation, -75.0f, 75.0f);
         }
-        if (cameraRotation < -20)
+        if (cameraRotation < -40)
         {
-            cameraRotation = -20;
+            cameraRotation = -40;
         }
 
-        if (cameraRotation > 45)
+        if (cameraRotation > 55)
         {
-            cameraRotation = 45;
+            cameraRotation = 55;
         }
 
         if (characterController.isGrounded)
