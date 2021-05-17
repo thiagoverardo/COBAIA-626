@@ -197,7 +197,6 @@ public class PlayerController : MonoBehaviour
         playerCamera.transform.localRotation = Quaternion.Euler(cameraRotation, 0.0f, 0.0f);
     }
     IInventoryItem mItemToPickup = null;
-    bool chestToOpen = false;
     private void OnTriggerEnter(Collider other)
     {
         IInventoryItem item = other.GetComponent<IInventoryItem>();

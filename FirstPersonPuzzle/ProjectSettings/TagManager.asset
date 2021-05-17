@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Boots
+  - Cube
   layers:
   - Default
   - TransparentFX
