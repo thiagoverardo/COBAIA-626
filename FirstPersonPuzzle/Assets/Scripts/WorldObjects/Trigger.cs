@@ -6,11 +6,27 @@ public class Trigger : MonoBehaviour
 {
     [SerializeField]
     public GameObject iteractObject;
+    public ClockUse clock;
     bool isUsed = false;
+    bool wasFrozen = false;
+
+    void Start()
+    {
+        Vector3 intObjFirstPos = iteractObject.transform.position;
+    }
+
+    void Update()
+    {
+        if(wasFrozen && !clock.timeFreeze)
+        {
+            isUsed = false;
+            wasFrozen = false;
+            iteractObject.transform.position += new Vector3(0, -4, 0);
+        }
+    }
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log("AAAAAA");
-        if(!isUsed)
+        if(!isUsed && !clock.timeFreeze)
         {
             isUsed = true;
             iteractObject.transform.position += new Vector3(0, 4, 0);
@@ -18,10 +34,15 @@ public class Trigger : MonoBehaviour
     }
     void OnTriggerExit(Collider col)
     {
-        if(isUsed)
+        if(isUsed && !clock.timeFreeze)
         {
-            isUsed = false;
             iteractObject.transform.position += new Vector3(0, -4, 0);
+            isUsed = false;
+        }
+
+        if(isUsed && clock.timeFreeze)
+        {
+            wasFrozen = true;
         }
     }
 }
