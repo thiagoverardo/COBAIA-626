@@ -22,5 +22,33 @@ MonoBehaviour:
     m_Localized: CONTINUE
     m_Metadata:
       m_Items: []
+  - m_Id: 1461474789203968
+    m_Localized: PLAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461780394582016
+    m_Localized: OPTIONS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461871700385792
+    m_Localized: CONTROLS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461996912943104
+    m_Localized: QUIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1462260143267840
+    m_Localized: BACK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1462483754196992
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1463112727830528
+    m_Localized: WALK - WASD
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

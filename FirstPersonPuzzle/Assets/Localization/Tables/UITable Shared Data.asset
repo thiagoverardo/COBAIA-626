@@ -19,6 +19,38 @@ MonoBehaviour:
     m_Key: Continue
     m_Metadata:
       m_Items: []
+  - m_Id: 1461474789203968
+    m_Key: PLAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461780394582016
+    m_Key: OPTIONS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461871700385792
+    m_Key: CONTROLS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461996912943104
+    m_Key: QUIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1462260143267840
+    m_Key: BACK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1462483754196992
+    m_Key: MUSIC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1463024991379456
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1463112727830528
+    m_Key: CONTROLSANDBUTTONS
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
