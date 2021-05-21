@@ -8,6 +8,7 @@
 |  Autor  | Descrição da alteração | Data da alteração |
 | :-----: | :--------------------: | :---------------: |
 | Matheus |  Criação GDD inicial   |    16/05/2021     |
+| Matheus |  Planejamento sprint2  |    21/05/2021     |
 
 
 
@@ -27,10 +28,7 @@ O jogador terá três itens distintos, cada um com sua habilidade
 especial:
 
 - parar o tempo
-- subir nas paredes
-- grappling hook
-
-Cada item só poderá ser usado em uma zona ou área específica.
+- lançador (o jogador é lançado para uma determinada direção)
 
 ## Características (Mundo do jogo)
 ---
@@ -45,7 +43,8 @@ A decidir
 ## Música/Trilha Sonora
 ---
 
-A decidir
+![Música Futurista](http://soundimage.org/wp-content/uploads/2016/01/Light-Years_V001_Looping.mp3) 
+para combinar com as mecânicas propostas.
 
 ## Interface
 ---
@@ -65,7 +64,7 @@ novos itens podem ser coletados para auxiliar na progressão.
 - F para pegar item ou fechar item sendo usado;
 - Botões 1 a 6 para selecionar o item desejado;
 - E para usar item;
-- Botão esquerdo do mouse para atirar (Grappling Hook na mão);
+- botão esquerdo do mouse para interagir com cubos do mapa.
 
 ## Dificuldade
 ---
@@ -106,6 +105,11 @@ Personagem.
   - Interação com objetos;
   - Primeira versão GDD;
 
+- 28/06/2021:
+  - Finalizar mecânicas dos itens;
+  - Telas de menu, pause e fim;
+  - Protótipo level inicial;
+  - Música ambiente.    
 
 ## Definições gerais
 ---
