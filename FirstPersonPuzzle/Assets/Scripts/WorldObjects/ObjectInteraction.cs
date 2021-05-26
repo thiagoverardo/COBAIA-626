@@ -11,7 +11,7 @@ public class ObjectInteraction : MonoBehaviour
 
     //the object being held
     private GameObject curObject;
-    private Rigidbody curBody;
+    public Rigidbody curBody;
 
     //the rotation of the curObject at pickup relative to the camera
     // private Quaternion relRot;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
+    public ClockUse clock;
     public Vector3[] points;
     public int currentPoint = 0;
     private Vector3 currentTarget;
@@ -19,15 +20,18 @@ public class MovingPlatform : MonoBehaviour
             currentTarget = points[0];
         tolerance = speed * Time.deltaTime;
     }
-    void Update()
+    void FixedUpdate()
     {
-        if (transform.position != currentTarget)
+        if(!clock.timeFreeze)
         {
-            MovePlatform();
-        }
-        else
-        {
-            UpdateTarget();
+            if (transform.position != currentTarget)
+            {
+                MovePlatform();
+            }
+            else
+            {
+                UpdateTarget();
+            }
         }
     }
 
