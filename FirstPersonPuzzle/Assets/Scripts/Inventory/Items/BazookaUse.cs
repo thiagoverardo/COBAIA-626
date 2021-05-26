@@ -24,7 +24,6 @@ public class BazookaUse : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log(transform.forward);
         charCont.Move(transform.forward * forceSpeed);
     }
 

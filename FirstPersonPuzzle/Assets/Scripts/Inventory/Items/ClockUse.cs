@@ -17,12 +17,10 @@ public class ClockUse : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     PowerOn();
-                    Debug.Log(timeFreeze);
                 }
                 if(Input.GetKeyUp(KeyCode.E))
                 {
                     PowerOff();
-                    Debug.Log(timeFreeze);
                 }
             }
         }
