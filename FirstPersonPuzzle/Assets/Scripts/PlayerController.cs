@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float walking_speed = 15.0f;
     float running_speed;
     float _gravidade = 9.8f;
-    private Vector3 playerVelocity;
+    public Vector3 playerVelocity;
     private float jumpHeight = 2.0f;
     private bool canJump = false;
     //Referência usada para a câmera filha do jogador

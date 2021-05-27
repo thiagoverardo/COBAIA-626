@@ -12,6 +12,8 @@ public class ObjectInteraction : MonoBehaviour
     //the object being held
     private GameObject curObject;
     public Rigidbody curBody;
+    public RaycastHit hitInfo;
+    public Ray ray;
 
     //the rotation of the curObject at pickup relative to the camera
     // private Quaternion relRot;
@@ -19,6 +21,7 @@ public class ObjectInteraction : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class ObjectInteraction : MonoBehaviour
 
     void LateUpdate()
     {
+        ray = new Ray(transform.position, transform.forward);
         if (curObject != null)
         {
             //keep the object in front of the camera
@@ -68,7 +72,6 @@ public class ObjectInteraction : MonoBehaviour
     void PickupItem()
     {
         //raycast to find an item
-        RaycastHit hitInfo;
         Physics.Raycast(transform.position, transform.forward, out hitInfo, 5f);
 
         if (hitInfo.rigidbody == null)
