@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public GameObject but2;
     public GameObject but3;
     public float stamina = 100.0f;
+    public BazookaUse bazooka;
 
     // AudioSource walkingSound;
     // public AudioSource tiredSFX;
@@ -97,30 +98,43 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        //Tratando movimentação do mouse
+        float mouse_dX = Input.GetAxis("Mouse X");
+        float mouse_dY = Input.GetAxis("Mouse Y");
 
-        if ((x != 0 || z != 0) && Input.GetKey(KeyCode.LeftShift) && stamina > .5f && walking_speed > 8)
+        if(!bazooka.shot)
         {
-            _baseSpeed = running_speed;
-            stamina -= Time.deltaTime * 17.5f;
-            if (stamina < 0.0f)
-                stamina -= 25.0f;
-            // else if (stamina < 30.0f)
-            // {
-            //     tiredSFX.mute = false;
-            //     // https://www.fesliyanstudios.com/royalty-free-sound-effects-download/person-sighing-160
-            //     if (!tiredSFX.isPlaying)
-            //         tiredSFX.Play();
-            // }
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+            if ((x != 0 || z != 0) && Input.GetKey(KeyCode.LeftShift) && stamina > .5f && walking_speed > 8)
+            {
+                _baseSpeed = running_speed;
+                stamina -= Time.deltaTime * 17.5f;
+                if (stamina < 0.0f)
+                    stamina -= 25.0f;
+                // else if (stamina < 30.0f)
+                // {
+                //     tiredSFX.mute = false;
+                //     // https://www.fesliyanstudios.com/royalty-free-sound-effects-download/person-sighing-160
+                //     if (!tiredSFX.isPlaying)
+                //         tiredSFX.Play();
+                // }
+            }
+            else
+            {
+                _baseSpeed = walking_speed;
+                if (stamina < 100)
+                    stamina += Time.deltaTime * 5;
+            }
+            //Verificando se é preciso aplicar a gravidade
+            float y = 0;
+            Vector3 direction = transform.right * x + transform.up * y + transform.forward * z;
+            characterController.Move(direction * _baseSpeed * Time.deltaTime);
         }
-        else
-        {
-            _baseSpeed = walking_speed;
-            if (stamina < 100)
-                stamina += Time.deltaTime * 5;
-        }
-
+        
+        transform.Rotate(Vector3.up, mouse_dX);
+        playerCamera.transform.localRotation = Quaternion.Euler(cameraRotation, 0.0f, 0.0f);
+        
         // if (x != 0 || z != 0 && characterController.isGrounded)
         // {
         //     if (!walkingSound.isPlaying)
@@ -131,12 +145,7 @@ public class PlayerController : MonoBehaviour
         //     walkingSound.Stop();
         // }
 
-        //Verificando se é preciso aplicar a gravidade
-        float y = 0;
-
-        //Tratando movimentação do mouse
-        float mouse_dX = Input.GetAxis("Mouse X");
-        float mouse_dY = Input.GetAxis("Mouse Y");
+        
 
         //Tratando a rotação da câmera
         if (cameraRotation >= -40 && cameraRotation <= 55)
@@ -167,13 +176,6 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += -_gravidade * Time.deltaTime;
         characterController.Move(playerVelocity * Time.deltaTime);
-
-        Vector3 direction = transform.right * x + transform.up * y + transform.forward * z;
-
-        characterController.Move(direction * _baseSpeed * Time.deltaTime);
-        transform.Rotate(Vector3.up, mouse_dX);
-
-        playerCamera.transform.localRotation = Quaternion.Euler(cameraRotation, 0.0f, 0.0f);
     }
     IInventoryItem mItemToPickup = null;
     private void OnTriggerEnter(Collider other)

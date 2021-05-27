@@ -2590,7 +2590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4071463830363502, guid: 02baef62b1bfedf40bb369fb7542b9e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36
+      value: -28.21
       objectReference: {fileID: 0}
     - target: {fileID: 4071463830363502, guid: 02baef62b1bfedf40bb369fb7542b9e7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2598,7 +2598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4071463830363502, guid: 02baef62b1bfedf40bb369fb7542b9e7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -31.8
+      value: -37.71
       objectReference: {fileID: 0}
     - target: {fileID: 4071463830363502, guid: 02baef62b1bfedf40bb369fb7542b9e7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12483,6 +12483,7 @@ MonoBehaviour:
   but2: {fileID: 645336489}
   but3: {fileID: 1434965374}
   stamina: 100
+  bazooka: {fileID: 1606615403}
   goItem: {fileID: 0}
 --- !u!65 &1212861491
 BoxCollider:
@@ -13921,6 +13922,7 @@ MonoBehaviour:
   playerCont: {fileID: 1212861490}
   charCont: {fileID: 1212861485}
   cam: {fileID: 963194227}
+  shot: 0
 --- !u!114 &1606615404
 MonoBehaviour:
   m_ObjectHideFlags: 0
