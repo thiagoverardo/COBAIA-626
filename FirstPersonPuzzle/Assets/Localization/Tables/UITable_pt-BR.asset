@@ -43,11 +43,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1462483754196992
-    m_Localized: "M\xFAsica"
+    m_Localized: "M\xDASICA"
     m_Metadata:
       m_Items: []
   - m_Id: 1463112727830528
     m_Localized: ANDAR - WASD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3989467247976448
+    m_Localized: NARRADOR
     m_Metadata:
       m_Items: []
   references:

@@ -8,7 +8,7 @@ public class AudioControl : MonoBehaviour
     public Slider masterSlider;
     public Slider sfxSlider;
     public Slider musicSlider;
-
+    public Slider narratorSlider;
     public AudioMixer master;
 
     float outMaster;
@@ -39,6 +39,13 @@ public class AudioControl : MonoBehaviour
         musicSlider.value = outAudio;
         //Registro o evento de mudança de slider.
         musicSlider.onValueChanged.AddListener(delegate { SliderChanged(musicSlider); });
+
+        master.GetFloat("narratorVolume", out outAudio);
+        narratorSlider.minValue = -80.0f;
+        narratorSlider.maxValue = 20.0f;
+        narratorSlider.value = outAudio;
+        //Registro o evento de mudança de slider.
+        narratorSlider.onValueChanged.AddListener(delegate { SliderChanged(narratorSlider); });
     }
 
     // Método responsável por alterar os volumes no AudioMixer de acordo com slider que foi modificado.
@@ -55,6 +62,10 @@ public class AudioControl : MonoBehaviour
         else if (slider == musicSlider)
         {
             master.SetFloat("musicVolume", slider.value);
+        }
+        else if (slider == narratorSlider)
+        {
+            master.SetFloat("narratorVolume", slider.value);
         }
     }
 }

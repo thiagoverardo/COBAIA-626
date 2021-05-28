@@ -51,6 +51,10 @@ MonoBehaviour:
     m_Key: CONTROLSANDBUTTONS
     m_Metadata:
       m_Items: []
+  - m_Id: 3989467247976448
+    m_Key: NARRATOR
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

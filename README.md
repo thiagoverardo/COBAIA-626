@@ -9,6 +9,7 @@
 | :-----: | :--------------------: | :---------------: |
 | Matheus |  Criação GDD inicial   |    16/05/2021     |
 | Matheus |  Planejamento sprint2  |    21/05/2021     |
+| Matheus |  Planejamento sprint2  |    28/05/2021     |
 
 
 
@@ -24,7 +25,7 @@ do jogo para prosseguir.
 ## Descrição da mecânica (Core Mechanics / System design)
 --- 
 
-O jogador terá três itens distintos, cada um com sua habilidade
+O jogador terá dois itens distintos, cada um com sua habilidade
 especial:
 
 - parar o tempo
@@ -38,12 +39,12 @@ Laboratório de testes.
 ## Arte
 ---
 
-A decidir
+Arte cartoonizada (contornos são essa aparência, inspiração em borderlands)
 
 ## Música/Trilha Sonora
 ---
 
-![Música Futurista](http://soundimage.org/wp-content/uploads/2016/01/Light-Years_V001_Looping.mp3) 
+[Música](http://soundimage.org/wp-content/uploads/2016/01/Light-Years_V001_Looping.mp3) 
 para combinar com as mecânicas propostas.
 
 ## Interface
@@ -62,9 +63,10 @@ novos itens podem ser coletados para auxiliar na progressão.
 - WASD para andar;
 - Movimento do mouse controla a visão;
 - F para pegar item ou fechar item sendo usado;
-- Botões 1 a 6 para selecionar o item desejado;
+- Botões 1 e 2 para selecionar o item desejado;
 - E para usar item;
 - botão esquerdo do mouse para interagir com cubos do mapa.
+- barra de espaço para pular
 
 ## Dificuldade
 ---
@@ -77,9 +79,13 @@ apresentados anteriormente e introduzindo novos desafios.
 
 A decidir.
 
-#### Storyboard:
-
-A decidir.
+Falas Narrador:
+  - Olá cobaia 626. Obrigado por se voluntariar para mais um teste. 
+Esperamos que dessa vez tudo ocora como esperado. Complete os testes propostos e você será recompensado. Por favor prossiga para a próxima câmara.
+  - Você acabou de adquirir o nosso mais novo relógio. Ele é capaz de parar o tempo. Você vai desccobrir muitas utilidades para ele (ou até mesmo bugs...).
+  - Ahh sim, uma bazuca... sem carga?? Hmm, não sei o que isso deveria ser... Boa sorte!
+  - Muito bom, bom trabalho passando desse nível. Não esperava que você fosse conseguir. Está pronto para o próximo?
+  - Bem vindo ao final do jogo. É isso. Aqui está um bolo pra você... Não tem mais nada aqui, você pode ir embora agora. 
 
 ## Fluxo do jogo
 
@@ -99,17 +105,26 @@ Personagem.
 ## Cronograma e Escopo
 ---
 
-- 21/06/2021:
+- 21/05/2021:
   - Inventário;
   - Pegar itens para o inventário;
   - Interação com objetos;
   - Primeira versão GDD;
 
-- 28/06/2021:
+- 28/05/2021:
   - Finalizar mecânicas dos itens;
   - Telas de menu, pause e fim;
   - Protótipo level inicial;
-  - Música ambiente.    
+  - Música ambiente.
+
+- 04/06/2021:
+  - Definir história para o jogo 
+  - fazer um nível/fase
+  - fazer checkpoint
+  - fazer o teto das salas
+  - acertar a arte do inventário
+  - bug do efeito estranho da porta
+  - bazuka
 
 ## Definições gerais
 ---
