@@ -9,10 +9,14 @@ public class PauseMenu : MonoBehaviour
 {
     public bool paused = false;
     public GameObject pauseMenu;
+    private GameMaster gm;
+
     void Start()
     {
         Time.timeScale = 1;
         Cursor.visible = false;
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+
     }
     void Update()
     {
@@ -30,8 +34,10 @@ public class PauseMenu : MonoBehaviour
             {
                 UnpauseGame();
             }
-
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+            Restart();
     }
 
     public void UnpauseGame()
@@ -51,5 +57,11 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void Restart()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.transform.position = gm.lastCheckPoint;
     }
 }

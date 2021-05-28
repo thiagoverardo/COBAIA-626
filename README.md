@@ -140,3 +140,4 @@ Puzzle;
 ## Referências e Assets
 ---
 
+Checkpoint SFX: https://freesound.org/people/Vicces1212/sounds/123751/

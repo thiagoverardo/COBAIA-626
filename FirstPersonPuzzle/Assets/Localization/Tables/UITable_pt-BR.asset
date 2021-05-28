@@ -54,5 +54,9 @@ MonoBehaviour:
     m_Localized: NARRADOR
     m_Metadata:
       m_Items: []
+  - m_Id: 4005735036395520
+    m_Localized: "\xFAltimo checkpoint"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
