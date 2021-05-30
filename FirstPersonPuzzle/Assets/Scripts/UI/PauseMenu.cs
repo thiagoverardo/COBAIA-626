@@ -11,12 +11,14 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     private GameMaster gm;
 
+    private GameObject player;
+
     void Start()
     {
         Time.timeScale = 1;
         Cursor.visible = false;
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
-
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     void Update()
     {
@@ -61,7 +63,9 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = gm.lastCheckPoint;
+        Debug.Log(gm.lastCheckPoint);
+        Debug.Log(player.transform.position);
+        UnpauseGame();
     }
 }

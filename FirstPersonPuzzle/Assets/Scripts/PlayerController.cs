@@ -23,12 +23,10 @@ public class PlayerController : MonoBehaviour
     public HUD hud;
     public GameObject but1;
     public GameObject but2;
-    public GameObject but3;
     public float stamina = 100.0f;
     public BazookaUse bazooka;
 
-    // AudioSource walkingSound;
-    // public AudioSource tiredSFX;
+    GameObject myEventSystem;
 
     void Start()
     {
@@ -38,7 +36,8 @@ public class PlayerController : MonoBehaviour
         cameraRotation = 0.0f;
         inventory.ItemUsed += Inventory_ItemUsed;
         running_speed = walking_speed * 2.0f;
-        // walkingSound = GetComponent<AudioSource>();
+
+        myEventSystem = GameObject.Find("EventSystem");
     }
 
     private IInventoryItem mCurrentItem = null;
@@ -74,18 +73,16 @@ public class PlayerController : MonoBehaviour
         {
             Button bbut1 = but1.GetComponent<Button>();
             bbut1.Select();
+            bbut1.onClick.Invoke();
+            myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             Button bbut2 = but2.GetComponent<Button>();
             bbut2.Select();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            Button bbut3 = but3.GetComponent<Button>();
-            bbut3.Select();
+            bbut2.onClick.Invoke();
+            myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         }
 
         if (Input.GetKeyDown(KeyCode.F))
@@ -102,7 +99,7 @@ public class PlayerController : MonoBehaviour
         float mouse_dX = Input.GetAxis("Mouse X");
         float mouse_dY = Input.GetAxis("Mouse Y");
 
-        if(!bazooka.shot)
+        if (!bazooka.shot)
         {
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
@@ -112,13 +109,6 @@ public class PlayerController : MonoBehaviour
                 stamina -= Time.deltaTime * 17.5f;
                 if (stamina < 0.0f)
                     stamina -= 25.0f;
-                // else if (stamina < 30.0f)
-                // {
-                //     tiredSFX.mute = false;
-                //     // https://www.fesliyanstudios.com/royalty-free-sound-effects-download/person-sighing-160
-                //     if (!tiredSFX.isPlaying)
-                //         tiredSFX.Play();
-                // }
             }
             else
             {
@@ -131,21 +121,9 @@ public class PlayerController : MonoBehaviour
             Vector3 direction = transform.right * x + transform.up * y + transform.forward * z;
             characterController.Move(direction * _baseSpeed * Time.deltaTime);
         }
-        
+
         transform.Rotate(Vector3.up, mouse_dX);
         playerCamera.transform.localRotation = Quaternion.Euler(cameraRotation, 0.0f, 0.0f);
-        
-        // if (x != 0 || z != 0 && characterController.isGrounded)
-        // {
-        //     if (!walkingSound.isPlaying)
-        //         walkingSound.Play();
-        // }
-        // else
-        // {
-        //     walkingSound.Stop();
-        // }
-
-        
 
         //Tratando a rotação da câmera
         if (cameraRotation >= -40 && cameraRotation <= 55)
