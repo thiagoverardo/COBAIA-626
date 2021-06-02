@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public GameObject but1;
     public GameObject but2;
     public float stamina = 100.0f;
-    public BazookaUse bazooka;
+    public HairdryerUse hairdryer;
 
     GameObject myEventSystem;
 
@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
         float mouse_dX = Input.GetAxis("Mouse X");
         float mouse_dY = Input.GetAxis("Mouse Y");
 
-        if (!bazooka.shot)
+        if (!hairdryer.shot)
         {
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
