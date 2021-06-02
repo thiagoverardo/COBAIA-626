@@ -77,13 +77,14 @@ apresentados anteriormente e introduzindo novos desafios.
 ## Narrativa e Storyboard
 ---
 
-A decidir.
+O protagonista deve resolver diversos puzzles e passar por salas para chegar ao final e ganhar seu prêmio.
+Ao longo de seu caminho, o narrador interage com o jogador com alguns comentários.
 
 Falas Narrador:
   - Olá cobaia 626. Obrigado por se voluntariar para mais um teste. 
 Esperamos que dessa vez tudo ocora como esperado. Complete os testes propostos e você será recompensado. Por favor prossiga para a próxima câmara.
   - Você acabou de adquirir o nosso mais novo relógio. Ele é capaz de parar o tempo. Você vai desccobrir muitas utilidades para ele (ou até mesmo bugs...).
-  - Ahh sim, uma bazuca... sem carga?? Hmm, não sei o que isso deveria ser... Boa sorte!
+  - Ahh sim, um secador...?? Hmm, não sei o que isso deveria ser... Boa sorte!
   - Muito bom, bom trabalho passando desse nível. Não esperava que você fosse conseguir. Está pronto para o próximo?
   - Bem vindo ao final do jogo. É isso. Aqui está um bolo pra você... Não tem mais nada aqui, você pode ir embora agora. 
 
@@ -141,3 +142,5 @@ Puzzle;
 ---
 
 Checkpoint SFX: https://freesound.org/people/Vicces1212/sounds/123751/
+
+Hair Dryer SFX: https://www.freesfx.co.uk/sfx/hair-dryer
