@@ -15,6 +15,7 @@ public class HairdryerUse : MonoBehaviour
     public float reloadTime = 40f;
     private bool isReloading = false;
     public Animator animator;
+    public AudioSource useSfx;
 
     void Start()
     {
@@ -32,25 +33,25 @@ public class HairdryerUse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(shot)
+        if (shot)
         {
             if (charCont.isGrounded)
             {
-                playerCont.playerVelocity = new Vector3(0,0, 0);
+                playerCont.playerVelocity = new Vector3(0, 0, 0);
                 shot = false;
             }
         }
-        
-        if(isReloading)
+
+        if (isReloading)
         {
             return;
         }
 
-        if(currentAmmo <= 0)
+        if (currentAmmo <= 0)
         {
             StartCoroutine(Reload());
             return;
-        }        
+        }
 
         if (playerCont.goItem != null)
         {
@@ -58,7 +59,7 @@ public class HairdryerUse : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    Shoot(); 
+                    Shoot();
                 }
             }
         }
@@ -68,7 +69,7 @@ public class HairdryerUse : MonoBehaviour
 
     {
         RaycastHit hit = cam.GetComponent<ObjectInteraction>().hitInfo;
-        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, distance))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, distance))
         {
             targetDirection = cam.GetComponent<ObjectInteraction>().ray.direction;
         }
@@ -76,12 +77,13 @@ public class HairdryerUse : MonoBehaviour
 
     void Shoot()
     {
-        if(currentAmmo > 0)
+        if (currentAmmo > 0)
         {
             playerCont.playerVelocity = -targetDirection * 15;
             currentAmmo--;
             shot = true;
             animator.SetBool("Shot", true);
+            useSfx.Play();
         }
     }
 
@@ -90,7 +92,7 @@ public class HairdryerUse : MonoBehaviour
         isReloading = true;
         animator.SetBool("Shot", false);
         animator.SetBool("Reloading", true);
-        yield return new WaitForSeconds(reloadTime-.25f);
+        yield return new WaitForSeconds(reloadTime - .25f);
         animator.SetBool("Reloading", false);
         yield return new WaitForSeconds(.25f);
         currentAmmo = maxAmmo;

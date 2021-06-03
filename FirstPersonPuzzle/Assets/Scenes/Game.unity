@@ -12202,7 +12202,7 @@ GameObject:
   - component: {fileID: 756551556}
   - component: {fileID: 756551555}
   m_Layer: 0
-  m_Name: CheckPoint2(Bazooka)
+  m_Name: CheckPoint2(Hairdryer)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17325,6 +17325,7 @@ MonoBehaviour:
   maxAmmo: 1
   reloadTime: 2.5
   animator: {fileID: 1044886775}
+  useSfx: {fileID: 956338925}
 --- !u!54 &956338924
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17341,6 +17342,103 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &956338925
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956338921}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -4593076614134216568, guid: 93a75590f8c181145aec49e20dcf74e8,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 0a7136aa119bc8845aef4129e46d9597, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -36306,7 +36404,7 @@ PrefabInstance:
     - target: {fileID: 7405182261123392010, guid: 3760c41fdb950f64799fb43b979d093c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -39.92
+      value: -47.26
       objectReference: {fileID: 0}
     - target: {fileID: 7405182261123392010, guid: 3760c41fdb950f64799fb43b979d093c,
         type: 3}
@@ -36361,7 +36459,7 @@ PrefabInstance:
     - target: {fileID: 7405182261123392014, guid: 3760c41fdb950f64799fb43b979d093c,
         type: 3}
       propertyPath: points.Array.data[0].z
-      value: -39.92
+      value: -47.26
       objectReference: {fileID: 0}
     - target: {fileID: 7405182261123392014, guid: 3760c41fdb950f64799fb43b979d093c,
         type: 3}
@@ -36376,7 +36474,7 @@ PrefabInstance:
     - target: {fileID: 7405182261123392014, guid: 3760c41fdb950f64799fb43b979d093c,
         type: 3}
       propertyPath: points.Array.data[1].z
-      value: -39.92
+      value: -47.26
       objectReference: {fileID: 0}
     - target: {fileID: 7405182261123392015, guid: 3760c41fdb950f64799fb43b979d093c,
         type: 3}
