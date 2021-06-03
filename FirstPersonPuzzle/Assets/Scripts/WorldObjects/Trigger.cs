@@ -7,6 +7,7 @@ public class Trigger : MonoBehaviour
     [SerializeField]
     public GameObject iteractObject;
     public ClockUse clock;
+    public Trigger otherPressureplate;
     bool isUsed = false;
     bool wasFrozen = false;
     private float i;
@@ -28,20 +29,40 @@ public class Trigger : MonoBehaviour
             iteractObject.transform.position = new Vector3(iteractObject.transform.position.x, 6.5f, iteractObject.transform.position.z);
             i = 4;
         }
-        if(isUsed && i <= 4 && !clock.timeFreeze){
-            iteractObject.transform.position += new Vector3(0, 0.1f, 0);
-            i += 0.1f;
-        }
-        if(!isUsed && i >= 0 && !clock.timeFreeze)
-        {
-            iteractObject.transform.position += new Vector3(0, -0.1f, 0);
-            i -= 0.1f;
-        }
+
         if(wasFrozen && !clock.timeFreeze)
         {
             isUsed = false;
             wasFrozen = false;
         }
+
+        if(otherPressureplate)
+        {
+            if(isUsed && otherPressureplate.isUsed && i <= 4 && !clock.timeFreeze)
+            {
+                iteractObject.transform.position += new Vector3(0, 0.1f, 0);
+                i += 0.1f;
+            }
+            if(!isUsed && i >= 0 && !clock.timeFreeze)
+            {
+                iteractObject.transform.position += new Vector3(0, -0.1f, 0);
+                i -= 0.1f;
+            }
+        }
+        else
+        {
+            if(isUsed && i <= 4 && !clock.timeFreeze)
+            {
+                iteractObject.transform.position += new Vector3(0, 0.1f, 0);
+                i += 0.1f;
+            }
+            if(!isUsed && i >= 0 && !clock.timeFreeze)
+            {
+                iteractObject.transform.position += new Vector3(0, -0.1f, 0);
+                i -= 0.1f;
+            }
+        }
+
     }
     void OnTriggerEnter(Collider col)
     {
