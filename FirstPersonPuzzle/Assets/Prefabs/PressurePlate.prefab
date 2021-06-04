@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6893406198682102244}
   - component: {fileID: 6893406198682102247}
   - component: {fileID: 6893406198682102243}
+  - component: {fileID: 2692684263088675099}
   m_Layer: 0
   m_Name: PressurePlate
   m_TagString: Untagged
@@ -92,8 +93,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.9607973, z: 1}
-  m_Center: {x: 0, y: 0.98039865, z: 0}
+  m_Size: {x: 1, y: 1.337215, z: 1}
+  m_Center: {x: 0, y: 1.7865604, z: 0}
 --- !u!114 &6893406198682102243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,3 +110,16 @@ MonoBehaviour:
   iteractObject: {fileID: 0}
   clock: {fileID: 0}
   otherPressureplate: {fileID: 0}
+--- !u!65 &2692684263088675099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6893406198682102246}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0037184, y: 0.97514564, z: 1}
+  m_Center: {x: -0.0018591881, y: 0.012427345, z: 0}
