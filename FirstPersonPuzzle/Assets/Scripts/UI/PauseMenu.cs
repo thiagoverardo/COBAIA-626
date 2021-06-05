@@ -64,8 +64,5 @@ public class PauseMenu : MonoBehaviour
     public void Restart()
     {
         player.transform.position = gm.lastCheckPoint;
-        Debug.Log(gm.lastCheckPoint);
-        Debug.Log(player.transform.position);
-        UnpauseGame();
     }
 }
