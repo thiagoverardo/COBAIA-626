@@ -85,6 +85,7 @@ Falas Narrador:
 Esperamos que dessa vez tudo ocora como esperado. Complete os testes propostos e você será recompensado. Por favor prossiga para a próxima câmara.
   - Você acabou de adquirir o nosso mais novo relógio. Ele é capaz de parar o tempo. Você vai desccobrir muitas utilidades para ele (ou até mesmo bugs...).
   - Ahh sim, um secador...?? Hmm, não sei o que isso deveria ser... Boa sorte!
+  - Se vc parar o tempo e soltar o cubo ele flutua onde você o deixou. Talvez isso possa te ajudar.
   - Muito bom, bom trabalho passando desse nível. Não esperava que você fosse conseguir. Está pronto para o próximo?
   - Bem vindo ao final do jogo. É isso. Aqui está um bolo pra você... Não tem mais nada aqui, você pode ir embora agora. 
 

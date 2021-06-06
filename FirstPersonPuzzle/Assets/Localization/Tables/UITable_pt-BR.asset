@@ -58,5 +58,9 @@ MonoBehaviour:
     m_Localized: "\xFAltimo checkpoint"
     m_Metadata:
       m_Items: []
+  - m_Id: 7268521011093504
+    m_Localized: PAUSADO
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
