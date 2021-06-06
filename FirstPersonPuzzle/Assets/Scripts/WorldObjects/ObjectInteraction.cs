@@ -21,7 +21,7 @@ public class ObjectInteraction : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -48,6 +48,7 @@ public class ObjectInteraction : MonoBehaviour
         {
             //keep the object in front of the camera
             ReposObject();
+            curBody.transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
 
@@ -56,16 +57,8 @@ public class ObjectInteraction : MonoBehaviour
     {
         //calculate the target position and rotation of the curbody
         Vector3 targetPos = transform.position + transform.forward * dist;
-        // Quaternion targetRot = transform.rotation * relRot;
 
-        //interpolate to the target position using velocity
         curBody.velocity = (targetPos - curBody.position) * 10;
-
-        // //keep the relative rotation the same
-        // curBody.rotation = targetRot;
-
-        // //no spinning around
-        // curBody.angularVelocity = Vector3.zero;
     }
 
     //attempts to pick up an item straigth ahead
@@ -81,15 +74,16 @@ public class ObjectInteraction : MonoBehaviour
         curBody.useGravity = false;
         curObject = hitInfo.rigidbody.gameObject;
 
-        // //hack w/ parenting & unparenting to get the relative rotation
         curObject.transform.parent = transform;
-        // relRot = curObject.transform.localRotation;
         curObject.transform.parent = null;
+
+        curObject.tag = "Untagged";
     }
 
     //drops the current item
     void DropItem()
     {
+        curObject.tag = "Cube";
         curBody.useGravity = true;
         curBody = null;
         curObject = null;

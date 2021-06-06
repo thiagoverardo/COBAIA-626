@@ -16,7 +16,6 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log(transform.position);
             checkpointSound.Play();
             gm.lastCheckPoint = transform.position;
         }
@@ -25,10 +24,7 @@ public class Checkpoint : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
             Destroy(gameObject);
-            Debug.Log("Destroyed");
-        }
 
     }
 }

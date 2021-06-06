@@ -22,7 +22,7 @@ public class MovingPlatform : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if(!clock.timeFreeze)
+        if (!clock.timeFreeze)
         {
             if (transform.position != currentTarget)
             {
@@ -66,11 +66,13 @@ public class MovingPlatform : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        other.transform.parent = transform;
+        if (other.CompareTag("Player") || other.CompareTag("Cube"))
+            other.transform.parent = transform;
     }
     void OnTriggerExit(Collider other)
     {
-        other.transform.parent = null;
+        if (other.CompareTag("Player") || other.CompareTag("Cube"))
+            other.transform.parent = null;
     }
 
 }
