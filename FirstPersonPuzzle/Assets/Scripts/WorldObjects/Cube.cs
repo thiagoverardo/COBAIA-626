@@ -6,16 +6,24 @@ public class Cube : MonoBehaviour
 {
     public ClockUse clock;
     public ObjectInteraction objInt;
-    Rigidbody rb;
+    public Vector3 cubeInitPos;
+    public PlayerController playerCon;
+    public Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        cubeInitPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(playerCon.restarting)
+        {
+            rb.position = cubeInitPos;
+            playerCon.restarting = false;
+        }
         if (objInt.curBody != null)
         {
             if(clock.timeFreeze && objInt.curBody.name != gameObject.name)

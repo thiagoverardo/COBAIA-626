@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
     public GameObject but2;
     public float stamina = 100.0f;
     public HairdryerUse hairdryer;
-
+    private GameMaster gm;
+    public bool restarting = false;
     GameObject myEventSystem;
 
     void Start()
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour
         cameraRotation = 0.0f;
         inventory.ItemUsed += Inventory_ItemUsed;
         running_speed = walking_speed * 2.0f;
-
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         myEventSystem = GameObject.Find("EventSystem");
     }
 
@@ -69,6 +70,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R)){
+            restarting = true;
+            Restart();
+        }
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Button bbut1 = but1.GetComponent<Button>();
@@ -174,5 +180,12 @@ public class PlayerController : MonoBehaviour
             mItemToPickup = null;
 
         }
+    }
+
+    public void Restart()
+    {
+        characterController.enabled = false;
+        transform.position = gm.lastCheckPoint + new Vector3(0,1,0);
+        characterController.enabled = true;
     }
 }

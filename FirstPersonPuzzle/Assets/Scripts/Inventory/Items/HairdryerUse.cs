@@ -13,7 +13,7 @@ public class HairdryerUse : MonoBehaviour
     public int maxAmmo = 1;
     private int currentAmmo;
     public float reloadTime = 40f;
-    private bool isReloading = false;
+    public bool isReloading = false;
     public Animator animator;
     public AudioSource useSfx;
 
@@ -25,7 +25,6 @@ public class HairdryerUse : MonoBehaviour
     void OnEnable()
     {
         isReloading = false;
-        shot = false;
         animator.SetBool("Reloading", false);
         animator.SetBool("Shot", false);
     }
