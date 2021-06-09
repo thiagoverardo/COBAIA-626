@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public LevelLoader loader;
     float _baseSpeed;
     public float walking_speed = 15.0f;
     float running_speed;
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private bool tryingToEat = false;
     private bool canEat = false;
     GameObject myEventSystem;
+    public AudioSource jumpSfx;
 
     void Start()
     {
@@ -73,7 +75,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)){
+        if (Input.GetKeyDown(KeyCode.R))
+        {
             restarting = true;
             Restart();
         }
@@ -97,10 +100,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             tryingToEat = true;
-            if(canEat){
+            if (canEat)
+            {
                 cons.cons = true;
             }
-            else{
+            else
+            {
                 tryingToEat = false;
             }
             if (mItemToPickup != null && inventory.mItems.Count < 6)
@@ -166,6 +171,7 @@ public class PlayerController : MonoBehaviour
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * -_gravidade);
             canJump = false;
+            jumpSfx.Play();
         }
 
         playerVelocity.y += -_gravidade * Time.deltaTime;
@@ -185,6 +191,12 @@ public class PlayerController : MonoBehaviour
         {
             hud.OpenMessagePanel("Pressione F para comer");
             canEat = true;
+            loader.LoadGameOver();
+        }
+
+        if (other.name == "Secret")
+        {
+            loader.LoadGameOver();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -201,7 +213,7 @@ public class PlayerController : MonoBehaviour
     public void Restart()
     {
         characterController.enabled = false;
-        transform.position = gm.lastCheckPoint + new Vector3(0,1,0);
+        transform.position = gm.lastCheckPoint + new Vector3(0, 1, 0);
         characterController.enabled = true;
     }
 }

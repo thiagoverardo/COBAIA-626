@@ -63,6 +63,18 @@ MonoBehaviour:
     m_Key: Paused
     m_Metadata:
       m_Items: []
+  - m_Id: 8395503116111872
+    m_Key: RESTART
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8395911674875904
+    m_Key: menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8397021617737728
+    m_Key: THANKS
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

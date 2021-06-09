@@ -62,5 +62,17 @@ MonoBehaviour:
     m_Localized: PAUSED
     m_Metadata:
       m_Items: []
+  - m_Id: 8395503116111872
+    m_Localized: RESTART
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8395911674875904
+    m_Localized: MENU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8397021617737728
+    m_Localized: THANKS FOR PLAYING
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
