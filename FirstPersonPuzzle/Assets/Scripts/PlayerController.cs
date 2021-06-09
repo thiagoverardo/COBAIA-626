@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
     public HairdryerUse hairdryer;
     private GameMaster gm;
     public bool restarting = false;
+    public Consumer cons;
+    private bool tryingToEat = false;
+    private bool canEat = false;
     GameObject myEventSystem;
 
     void Start()
@@ -93,6 +96,13 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
+            tryingToEat = true;
+            if(canEat){
+                cons.cons = true;
+            }
+            else{
+                tryingToEat = false;
+            }
             if (mItemToPickup != null && inventory.mItems.Count < 6)
             {
                 inventory.AddItem(mItemToPickup);
@@ -169,6 +179,12 @@ public class PlayerController : MonoBehaviour
         {
             mItemToPickup = item;
             hud.OpenMessagePanel("Pressione F para pegar");
+        }
+
+        if (other.name == "Cake")
+        {
+            hud.OpenMessagePanel("Pressione F para comer");
+            canEat = true;
         }
     }
     private void OnTriggerExit(Collider other)

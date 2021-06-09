@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerBridge : MonoBehaviour
+public class TriggerLastDoor : MonoBehaviour
 {
     [SerializeField]
     public GameObject iteractObject;
     public ClockUse clock;
-    public TriggerBridge otherPressureplate;
+    public TriggerLastDoor otherPressureplate;
     bool isUsed = false;
     bool wasFrozen = false;
     private float i;
-    public GameObject floor;
 
     void Start()
     {
@@ -20,15 +19,15 @@ public class TriggerBridge : MonoBehaviour
 
     void Update()
     {
-        if(iteractObject.transform.position.y < -4f)
+        if(iteractObject.transform.position.y < 19.85f)
         {
-            iteractObject.transform.position = new Vector3(iteractObject.transform.position.x, -4f, iteractObject.transform.position.z);
+            iteractObject.transform.position = new Vector3(iteractObject.transform.position.x, 19.85f, iteractObject.transform.position.z);
             i = 0;
         }
-        if(iteractObject.transform.position.y > 56.4f)
+        if(iteractObject.transform.position.y > 44.85f)
         {
-            iteractObject.transform.position = new Vector3(iteractObject.transform.position.x, 56.4f, iteractObject.transform.position.z);
-            i = 56.4f;
+            iteractObject.transform.position = new Vector3(iteractObject.transform.position.x, 44.85f, iteractObject.transform.position.z);
+            i = 25f;
         }
 
         if(wasFrozen && !clock.timeFreeze)
@@ -39,28 +38,28 @@ public class TriggerBridge : MonoBehaviour
 
         if(otherPressureplate)
         {
-            if(isUsed && otherPressureplate.isUsed && i <= 56.4f && !clock.timeFreeze)
+            if(isUsed && otherPressureplate.isUsed && i <= 25f && !clock.timeFreeze)
             {
-                iteractObject.transform.position += new Vector3(0, 0.05f, 0);
-                i += 0.05f;
+                iteractObject.transform.position += new Vector3(0, 0.1f, 0);
+                i += 0.1f;
             }
             if(!isUsed && i >= 0 && !clock.timeFreeze)
             {
-                iteractObject.transform.position += new Vector3(0, -0.05f, 0);
-                i -= 0.05f;
+                iteractObject.transform.position += new Vector3(0, -0.1f, 0);
+                i -= 0.1f;
             }
         }
         else
         {
-            if(isUsed && i <= 56.4f && !clock.timeFreeze)
+            if(isUsed && i <= 25f && !clock.timeFreeze)
             {
-                iteractObject.transform.position += new Vector3(0, 0.05f, 0);
-                i += 0.05f;
+                iteractObject.transform.position += new Vector3(0, 0.1f, 0);
+                i += 0.1f;
             }
             if(!isUsed && i >= 0 && !clock.timeFreeze)
             {
-                iteractObject.transform.position += new Vector3(0, -0.05f, 0);
-                i -= 0.05f;
+                iteractObject.transform.position += new Vector3(0, -0.1f, 0);
+                i -= 0.1f;
             }
         }
 
@@ -71,7 +70,6 @@ public class TriggerBridge : MonoBehaviour
         {
             isUsed = true;
             i = 0;
-            floor.SetActive(true);
         }
     }
     void OnTriggerExit(Collider col)

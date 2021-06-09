@@ -9,6 +9,12 @@ public class CubeCheckpoint1 : MonoBehaviour
 
     public GameObject spawn1;
 
+    void Update(){
+        if(transform.position.y < -4f){
+            cube.rb.position = spawn.transform.position;
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.name == "Floor")
