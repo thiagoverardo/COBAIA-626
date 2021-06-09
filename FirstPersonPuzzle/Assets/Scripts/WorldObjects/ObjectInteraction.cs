@@ -77,7 +77,7 @@ public class ObjectInteraction : MonoBehaviour
         curObject.transform.parent = transform;
         curObject.transform.parent = null;
 
-        curObject.tag = "Untagged";
+        curObject.tag = "PickUp";
     }
 
     //drops the current item

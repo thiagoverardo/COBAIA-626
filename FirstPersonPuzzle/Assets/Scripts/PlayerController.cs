@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private bool canJump = false;
     //Referência usada para a câmera filha do jogador
     GameObject playerCamera;
+    public ObjectInteraction obInt;
     //Utilizada para poder travar a rotação no angulo que quisermos.
     float cameraRotation;
     string object_hit;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private bool canEat = false;
     GameObject myEventSystem;
     public AudioSource jumpSfx;
+    private bool onCube;
 
     void Start()
     {
@@ -75,6 +77,24 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (characterController.isGrounded)
+        {
+            if(onCube){
+                canJump = false;
+            }
+            else{
+                canJump = true;
+            }
+            playerVelocity.y = 0;
+        }
+
+        if (Input.GetButtonDown("Jump") && canJump)
+        {
+            playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * -_gravidade);
+            canJump = false;
+            jumpSfx.Play();
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             restarting = true;
@@ -83,6 +103,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            hud.CloseMessagePanel();
+            hud.OpenMessagePanel("Pressione E para usar");
+            StartCoroutine(hud.CloseMessagePanelCoroutine());
             Button bbut1 = but1.GetComponent<Button>();
             bbut1.Select();
             bbut1.onClick.Invoke();
@@ -91,6 +114,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            hud.CloseMessagePanel();
+            hud.OpenMessagePanel("Pressione E para usar");
+            StartCoroutine(hud.CloseMessagePanelCoroutine());
             Button bbut2 = but2.GetComponent<Button>();
             bbut2.Select();
             bbut2.onClick.Invoke();
@@ -113,6 +139,8 @@ public class PlayerController : MonoBehaviour
                 inventory.AddItem(mItemToPickup);
                 mItemToPickup.OnPickup();
                 hud.CloseMessagePanel();
+                hud.OpenMessagePanel("pressione 1 e 2 para segurar");
+                StartCoroutine(hud.CloseMessagePanelCoroutine());
             }
         }
 
@@ -124,19 +152,9 @@ public class PlayerController : MonoBehaviour
         {
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
-            if ((x != 0 || z != 0) && Input.GetKey(KeyCode.LeftShift) && stamina > .5f && walking_speed > 8)
-            {
-                _baseSpeed = running_speed;
-                stamina -= Time.deltaTime * 17.5f;
-                if (stamina < 0.0f)
-                    stamina -= 25.0f;
-            }
-            else
-            {
-                _baseSpeed = walking_speed;
-                if (stamina < 100)
-                    stamina += Time.deltaTime * 5;
-            }
+            
+            _baseSpeed = walking_speed;
+                
             //Verificando se é preciso aplicar a gravidade
             float y = 0;
             Vector3 direction = transform.right * x + transform.up * y + transform.forward * z;
@@ -162,25 +180,19 @@ public class PlayerController : MonoBehaviour
             cameraRotation = 55;
         }
 
-        if (characterController.isGrounded)
-        {
-            canJump = true;
-            if (Input.GetButtonDown("Jump") && canJump)
-            {
-                playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * -_gravidade);
-                canJump = false;
-                jumpSfx.Play();
-            }
-            else {
-                playerVelocity.y = 0;
-            }
-        }
-
-
         playerVelocity.y += -_gravidade * Time.deltaTime;
         characterController.Move(playerVelocity * Time.deltaTime);
     }
     IInventoryItem mItemToPickup = null;
+
+    void OnControllerColliderHit(ControllerColliderHit hit){
+        if (hit.transform.tag == "PickUp"){
+            onCube = true;
+        }
+        else{
+            onCube = false;
+        }
+    }      
     private void OnTriggerEnter(Collider other)
     {
         IInventoryItem item = other.GetComponent<IInventoryItem>();

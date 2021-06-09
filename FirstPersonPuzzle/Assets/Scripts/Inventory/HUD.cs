@@ -69,6 +69,12 @@ public class HUD : MonoBehaviour
         MessagePanel.SetActive(false);
     }
 
+    public IEnumerator CloseMessagePanelCoroutine()
+    {
+        yield return new WaitForSeconds(3f);
+        CloseMessagePanel();
+    }
+
     public void OpenScrollPanel(string date, string text)
     {
         txtDate.text = date;

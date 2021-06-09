@@ -9,6 +9,7 @@ TagManager:
   - Plataformas1
   - GM
   - Floor
+  - PickUp
   layers:
   - Default
   - TransparentFX
