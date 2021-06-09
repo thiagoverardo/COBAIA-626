@@ -8,8 +8,8 @@ public class Consumer : MonoBehaviour
     GameObject[] portions;
     int currentIndex;
     float lastChange;
-    float interval = 1f;
     public bool cons;
+    private bool over = false;
 
     void Start()
     {
@@ -25,7 +25,7 @@ public class Consumer : MonoBehaviour
 
     void Update()
     {
-        if (cons)
+        if (cons && !over)
         {
             Consume();
             cons = false;
@@ -34,13 +34,16 @@ public class Consumer : MonoBehaviour
 
     void Consume()
     {
-        if (currentIndex != portions.Length)
+        if (currentIndex != portions.Length){
             portions[currentIndex].SetActive(false);
+        }
         currentIndex++;
         if (currentIndex > portions.Length)
             currentIndex = 0;
-        else if (currentIndex == portions.Length)
+        else if (currentIndex == portions.Length){
+            over = true;
             return;
+        }
         portions[currentIndex].SetActive(true);
     }
 

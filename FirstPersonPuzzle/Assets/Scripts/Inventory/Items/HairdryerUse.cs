@@ -11,11 +11,12 @@ public class HairdryerUse : MonoBehaviour
     private float mass;
     public bool shot = false;
     public int maxAmmo = 1;
-    private int currentAmmo;
+    public int currentAmmo;
     public float reloadTime = 40f;
     public bool isReloading = false;
     public Animator animator;
     public AudioSource useSfx;
+    public ClockUse clock;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class HairdryerUse : MonoBehaviour
         isReloading = false;
         animator.SetBool("Reloading", false);
         animator.SetBool("Shot", false);
+        clock.timeFreeze = false;
     }
 
     // Update is called once per frame

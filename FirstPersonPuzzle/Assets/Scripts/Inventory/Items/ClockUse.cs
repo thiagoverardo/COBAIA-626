@@ -13,7 +13,7 @@ public class ClockUse : MonoBehaviour
 
     void OnEnable()
     {
-        hairdryer.isReloading = true;
+        hairdryer.currentAmmo = 0;
         hairdryer.animator.SetBool("Shot", false);
         hairdryer.animator.SetBool("Reloading", true);
         hairdryer.animator.SetBool("Reloading", false);

@@ -165,14 +165,17 @@ public class PlayerController : MonoBehaviour
         if (characterController.isGrounded)
         {
             canJump = true;
+            if (Input.GetButtonDown("Jump") && canJump)
+            {
+                playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * -_gravidade);
+                canJump = false;
+                jumpSfx.Play();
+            }
+            else {
+                playerVelocity.y = 0;
+            }
         }
 
-        if (Input.GetButtonDown("Jump") && canJump)
-        {
-            playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * -_gravidade);
-            canJump = false;
-            jumpSfx.Play();
-        }
 
         playerVelocity.y += -_gravidade * Time.deltaTime;
         characterController.Move(playerVelocity * Time.deltaTime);
