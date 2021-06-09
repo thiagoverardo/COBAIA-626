@@ -1,6 +1,8 @@
 # Portal Bootleg
 
-<Resumo do jogo>
+Você joga como uma cobaia para realizar experimentos com itens não regulamentados. 
+Sua missão é utilizar os itens da maneira que bem entender para chegar ao final
+e comer um delicioso bolo.
 
 ## Log de Alterações
 ---
@@ -10,7 +12,7 @@
 | Matheus |  Criação GDD inicial   |    16/05/2021     |
 | Matheus |  Planejamento sprint2  |    21/05/2021     |
 | Matheus |  Planejamento sprint2  |    28/05/2021     |
-
+| Thiago  |   Planejamento final   |    04/06/2021     |
 
 
 ## Identidade do jogo (Conceito)
@@ -74,21 +76,20 @@ novos itens podem ser coletados para auxiliar na progressão.
 As fases ficam mais complexas ao avançar, misturando conceitos
 apresentados anteriormente e introduzindo novos desafios.
 
-## Narrativa e Storyboard
+## Narrador
 ---
 
 O protagonista deve resolver diversos puzzles e passar por salas para chegar ao final e ganhar seu prêmio.
 Ao longo de seu caminho, o narrador interage com o jogador com alguns comentários.
 
 Falas Narrador:
-  - Olá cobaia 626. Obrigado por se voluntariar para mais um teste. 
-Esperamos que dessa vez tudo ocora como esperado. Complete os testes propostos e você será recompensado. Por favor prossiga para a próxima câmara.
+  - Olá cobaia 626. Obrigado por se voluntariar para mais um teste. Esperamos que dessa vez tudo ocora como esperado. Complete os testes propostos e você será recompensado. Por favor prossiga para a próxima câmara.
   - Você acabou de adquirir o nosso mais novo relógio. Ele é capaz de parar o tempo. Você vai desccobrir muitas utilidades para ele (ou até mesmo bugs...).
   - Ahh sim, um secador...?? Hmm, não sei o que isso deveria ser... Boa sorte!
   - Se vc parar o tempo e soltar o cubo ele flutua onde você o deixou. Talvez isso possa te ajudar.
   - Muito bom, bom trabalho passando desse nível. Não esperava que você fosse conseguir. Está pronto para o próximo?
-  - 
-  - Bem vindo ao final do jogo. É isso. Aqui está um bolo pra você... Não tem mais nada aqui, você pode ir embora agora. 
+  - Bem vindo ao final do jogo. É isso. Aqui está um bolo pra você... Não tem mais nada aqui, você pode ir embora agora.
+  - Audio Secreto... Encontre o final secreto...
 
 ## Fluxo do jogo
 
@@ -128,6 +129,13 @@ Personagem.
   - acertar a arte do inventário
   - bug do efeito estranho da porta
   - bazuka
+
+- 11/06/2021:
+  - Finalizar jogo 
+  - terminais níveis
+  - final normal
+  - final secreto
+  - iluminação
 
 ## Definições gerais
 ---
