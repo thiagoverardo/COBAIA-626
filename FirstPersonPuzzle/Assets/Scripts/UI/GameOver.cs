@@ -8,14 +8,15 @@ public class GameOver : MonoBehaviour
 {
     public GameObject LoadingScreen;
     public Slider loading;
-    public void PlayGame()
-    {
-        StartCoroutine(LoadGameAsync());
-    }
     void Awake()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void PlayGame()
+    {
+        StartCoroutine(LoadGameAsync());
     }
 
     public void Menu()
@@ -32,6 +33,8 @@ public class GameOver : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(1);
 
         LoadingScreen.SetActive(true);
+
+        Cursor.visible = false;
 
         while (!operation.isDone)
         {

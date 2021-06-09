@@ -47,11 +47,28 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1463112727830528
-    m_Localized: WALK - WASD
+    m_Localized: 'WALK - WASD
+
+
+      GRAB OBJECT - F
+
+
+      JUMP - SPACE BAR
+
+
+      SELECT
+      ITEM - NUMPAD 1 & 2
+
+
+      USE ITEM - E
+
+
+      INTERACT WITH CUBES - LEFT
+      MOUSE BUTTON'
     m_Metadata:
       m_Items: []
   - m_Id: 3989467247976448
-    m_Localized: NARRATOR
+    m_Localized: Narrator
     m_Metadata:
       m_Items: []
   - m_Id: 4005735036395520

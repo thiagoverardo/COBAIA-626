@@ -87,6 +87,7 @@ Falas Narrador:
   - Você acabou de adquirir o nosso mais novo relógio. Ele é capaz de parar o tempo. Você vai desccobrir muitas utilidades para ele (ou até mesmo bugs...).
   - Ahh sim, um secador...?? Hmm, não sei o que isso deveria ser... Boa sorte!
   - Se vc parar o tempo e soltar o cubo ele flutua onde você o deixou. Talvez isso possa te ajudar.
+  - Bom, aqui você tem que pressionar 2 desses 12 botões para abrir a porta a sua frente. Acho que você vai conseguir. 
   - Muito bom, bom trabalho passando desse nível. Não esperava que você fosse conseguir. Está pronto para o próximo?
   - Bem vindo ao final do jogo. É isso. Aqui está um bolo pra você... Não tem mais nada aqui, você pode ir embora agora.
   - Audio Secreto... Encontre o final secreto...
