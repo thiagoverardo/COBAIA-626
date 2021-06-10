@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
     private GameMaster gm;
     public bool restarting = false;
     public Consumer cons;
-    private bool tryingToEat = false;
     private bool canEat = false;
     GameObject myEventSystem;
     public AudioSource jumpSfx;
@@ -125,14 +124,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            tryingToEat = true;
             if (canEat)
             {
                 cons.cons = true;
-            }
-            else
-            {
-                tryingToEat = false;
+                loader.LoadGameOver();
             }
             if (mItemToPickup != null && inventory.mItems.Count < 6)
             {
@@ -206,7 +201,6 @@ public class PlayerController : MonoBehaviour
         {
             hud.OpenMessagePanel("Pressione F para comer");
             canEat = true;
-            loader.LoadGameOver();
         }
 
         if (other.name == "Secret")
@@ -227,8 +221,10 @@ public class PlayerController : MonoBehaviour
 
     public void Restart()
     {
+        
         characterController.enabled = false;
         transform.position = gm.lastCheckPoint + new Vector3(0, 1, 0);
         characterController.enabled = true;
+        restarting = false;
     }
 }

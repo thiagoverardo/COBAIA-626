@@ -63,8 +63,11 @@ MonoBehaviour:
       USE ITEM - E
 
 
-      INTERACT WITH CUBES - LEFT
-      MOUSE BUTTON'
+      GO BACK TO CHECKPOINT - R
+
+
+      INTERACT
+      WITH CUBES - LEFT MOUSE BUTTON'
     m_Metadata:
       m_Items: []
   - m_Id: 3989467247976448
