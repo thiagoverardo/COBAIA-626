@@ -8,17 +8,15 @@ public class MovingPlatform : MonoBehaviour
     public Vector3[] points;
     public int currentPoint = 0;
     private Vector3 currentTarget;
-    public float tolerance;
+    float tolerance = .3f;
     public float speed;
     public float delayTime;
-
     private float delayStart;
     public bool automatic;
     void Start()
     {
         if (points.Length > 0)
             currentTarget = points[0];
-        tolerance = speed * Time.deltaTime;
     }
     void FixedUpdate()
     {

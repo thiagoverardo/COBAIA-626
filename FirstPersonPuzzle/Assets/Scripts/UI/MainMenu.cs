@@ -9,7 +9,8 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject LoadingScreen;
     public Slider loading;
-    
+    public Animator transition;
+
     void Awake()
     {
         Cursor.visible = true;
