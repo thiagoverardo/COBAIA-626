@@ -1,4 +1,4 @@
-# Portal Bootleg
+# Cobaia-626
 
 Você joga como uma cobaia para realizar experimentos com itens não regulamentados. 
 Sua missão é utilizar os itens da maneira que bem entender para chegar ao final
