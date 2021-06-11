@@ -99,6 +99,10 @@ public class PlayerController : MonoBehaviour
             }
             playerVelocity.y = 0;
         }
+        if (!characterController.isGrounded)
+        {
+            canJump = false;
+        }
 
         if (Input.GetButtonDown("Jump") && canJump)
         {
