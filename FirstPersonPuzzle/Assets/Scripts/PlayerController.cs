@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Animator m_animator = null;
     public LevelLoader loader;
     float _baseSpeed;
     public float walking_speed = 15.0f;
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 playerVelocity;
     private float jumpHeight = 2.0f;
     private bool canJump = false;
+    private bool wasJumping = false;
     //Referência usada para a câmera filha do jogador
     GameObject playerCamera;
     public ObjectInteraction obInt;
@@ -34,6 +36,11 @@ public class PlayerController : MonoBehaviour
     GameObject myEventSystem;
     public AudioSource jumpSfx;
     private bool onCube;
+
+    private void Awake()
+    {
+        if (!m_animator) { gameObject.GetComponent<Animator>(); }
+    }
 
     void Start()
     {
@@ -76,8 +83,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        m_animator.SetBool("Grounded", characterController.isGrounded);
         if (characterController.isGrounded)
         {
+            if(wasJumping){
+                wasJumping = false;
+                m_animator.SetTrigger("Land");
+            }
+            
             if(onCube){
                 canJump = false;
             }
@@ -90,7 +103,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && canJump)
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * -_gravidade);
+            m_animator.SetTrigger("Jump");
             canJump = false;
+            wasJumping = true;
             jumpSfx.Play();
         }
 
@@ -154,6 +169,7 @@ public class PlayerController : MonoBehaviour
             float y = 0;
             Vector3 direction = transform.right * x + transform.up * y + transform.forward * z;
             characterController.Move(direction * _baseSpeed * Time.deltaTime);
+            m_animator.SetFloat("MoveSpeed", x + z);
         }
 
         transform.Rotate(Vector3.up, mouse_dX);

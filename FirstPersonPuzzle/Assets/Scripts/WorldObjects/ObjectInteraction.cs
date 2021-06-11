@@ -48,7 +48,9 @@ public class ObjectInteraction : MonoBehaviour
         {
             //keep the object in front of the camera
             ReposObject();
-            curBody.transform.localScale = new Vector3(1f, 1f, 1f);
+            if(curBody.name != "Player"){
+                curBody.transform.localScale = new Vector3(1f, 1f, 1f);
+            }
         }
     }
 

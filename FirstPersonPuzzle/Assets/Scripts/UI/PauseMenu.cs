@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     private GameMaster gm;
     private GameObject player;
+    public GameObject controls;
 
     void Start()
     {
@@ -39,6 +40,9 @@ public class PauseMenu : MonoBehaviour
 
     public void UnpauseGame()
     {
+        if(controls.activeSelf){
+            controls.SetActive(false);
+        }
         Time.timeScale = 1;
         paused = false;
         Cursor.visible = false;

@@ -11,6 +11,7 @@ public class TriggerLastDoor : MonoBehaviour
     bool isUsed = false;
     bool wasFrozen = false;
     private float i;
+    public GameObject green;
 
     void Start()
     {
@@ -69,6 +70,7 @@ public class TriggerLastDoor : MonoBehaviour
         if(!isUsed && !clock.timeFreeze)
         {
             isUsed = true;
+            green.SetActive(true);
             i = 0;
         }
     }
@@ -77,6 +79,7 @@ public class TriggerLastDoor : MonoBehaviour
         if(isUsed && !clock.timeFreeze)
         {
             isUsed = false;
+            green.gameObject.SetActive(false);
         }
 
         if(isUsed && clock.timeFreeze)
